@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load forms_builder_tags %}
+
+{% block title %}
+  <title>Створи власну політичну програму</title>
+{% endblock %}
+
+{% block body %}
+    <!--{% render_built_form slug="golosuvalka" %}-->
+    <h1>Конструктор політичних програм</h1>
+
+    <p>Відповідай на питання, а ми сгенеруємо тобі програму</p>
+
+
+    <form action="/questionnaire/" method="post">
+                <input type='hidden' name='csrfmiddlewaretoken' value='2dIhEDmp3vW1YLncOrS8TM2wXl8YYMwW2AvmJjQqtiojuNrcLRsySHmJPptxRw09' />
+                <p><label for="id_v_kogo_naibilshii_dush_0">З ким плануєте вступати у військово-політичний союз?</label> <ul id="id_v_kogo_naibilshii_dush" class="choicefield required">
+            <li><label for="id_v_kogo_naibilshii_dush_0"><input type="radio" name="v_kogo_naibilshii_dush" value="Інтеграція до НАТО" required class="choicefield required" id="id_v_kogo_naibilshii_dush_0" />
+         Інтеграція до НАТО</label>
+
+        </li>
+            <li><label for="id_v_kogo_naibilshii_dush_1"><input type="radio" name="v_kogo_naibilshii_dush" value="Створення Балто-Чорноморського союзу" required class="choicefield required" id="id_v_kogo_naibilshii_dush_1" />
+         Створення Балто-Чорноморського союзу</label>
+
+        </li>
+            <li><label for="id_v_kogo_naibilshii_dush_2"><input type="radio" name="v_kogo_naibilshii_dush" value="Нейтралітет" required class="choicefield required" id="id_v_kogo_naibilshii_dush_2" />
+         Нейтралітет</label>
+
+        </li>
+        </ul></p>
+        <p><label>А що ви пропонуєте робити із українськими збройними силами?</label> <ul id="id_v_kogo_naibilshii_dush-1" class="multiplechoicefield">
+            <li><label for="id_v_kogo_naibilshii_dush-1_0"><input type="checkbox" name="v_kogo_naibilshii_dush-1" value="Створення системи військового резерву" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-1_0" />
+         Створення системи військового резерву</label>
+
+        </li>
+            <li><label for="id_v_kogo_naibilshii_dush-1_1"><input type="checkbox" name="v_kogo_naibilshii_dush-1" value="Відновлення ядерного статусу" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-1_1" />
+         Відновлення ядерного статусу</label>
+
+        </li>
+            <li><label for="id_v_kogo_naibilshii_dush-1_2"><input type="checkbox" name="v_kogo_naibilshii_dush-1" value="Перехід до контрактної армії" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-1_2" />
+         Перехід до контрактної армії</label>
+
+        </li>
+            <li><label for="id_v_kogo_naibilshii_dush-1_3"><input type="checkbox" name="v_kogo_naibilshii_dush-1" value="Реформування та переоснащення армії" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-1_3" />
+         Реформування та переоснащення армії</label>
+
+        </li>
+        </ul></p>
+        <p><label>Як повертатимемо Крим і Донбас?</label> <ul id="id_v_kogo_naibilshii_dush-2" class="multiplechoicefield">
+            <li><label for="id_v_kogo_naibilshii_dush-2_0"><input type="checkbox" name="v_kogo_naibilshii_dush-2" value="Військова перемога" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-2_0" />
+         Військова перемога</label>
+
+        </li>
+            <li><label for="id_v_kogo_naibilshii_dush-2_1"><input type="checkbox" name="v_kogo_naibilshii_dush-2" value="Економічна перемога" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-2_1" />
+         Економічна перемога</label>
+
+        </li>
+            <li><label for="id_v_kogo_naibilshii_dush-2_2"><input type="checkbox" name="v_kogo_naibilshii_dush-2" value="Культурна перемога" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-2_2" />
+         Культурна перемога</label>
+
+        </li>
+        </ul></p>
+        <p><label>Яким чином будемо протидіяти агресії Росії?</label> <ul id="id_v_kogo_naibilshii_dush-3" class="multiplechoicefield">
+            <li><label for="id_v_kogo_naibilshii_dush-3_0"><input type="checkbox" name="v_kogo_naibilshii_dush-3" value="Дотримуватися Мінських угод" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-3_0" />
+         Дотримуватися Мінських угод</label>
+
+        </li>
+            <li><label for="id_v_kogo_naibilshii_dush-3_1"><input type="checkbox" name="v_kogo_naibilshii_dush-3" value="Підтримка ворогів Росії" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-3_1" />
+         Підтримка ворогів Росії</label>
+
+        </li>
+            <li><label for="id_v_kogo_naibilshii_dush-3_2"><input type="checkbox" name="v_kogo_naibilshii_dush-3" value="Введення візового режиму з РФ" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-3_2" />
+         Введення візового режиму з РФ</label>
+
+        </li>
+            <li><label for="id_v_kogo_naibilshii_dush-3_3"><input type="checkbox" name="v_kogo_naibilshii_dush-3" value="Вимагання гарантій безпеки України згідно Будапештського меморандуму" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-3_3" />
+         Вимагання гарантій безпеки України згідно Будапештського меморандуму</label>
+
+        </li>
+            <li><label for="id_v_kogo_naibilshii_dush-3_4"><input type="checkbox" name="v_kogo_naibilshii_dush-3" value="Протидія у міжнародних судах" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-3_4" />
+         Протидія у міжнародних судах</label>
+
+        </li>
+            <li><label for="id_v_kogo_naibilshii_dush-3_5"><input type="checkbox" name="v_kogo_naibilshii_dush-3" value="Націоналізація майна на території України" class="multiplechoicefield" id="id_v_kogo_naibilshii_dush-3_5" />
+         Націоналізація майна на території України</label>
+
+        </li>
+        </ul></p>
+        <div style="clear:left;">&nbsp;</div>
+        <input type="submit" value="Сгенерувати політичну програму">
+    </form>
+
+{% endblock %}
