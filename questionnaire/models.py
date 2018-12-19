@@ -20,3 +20,5 @@ class Policy(models.Model):
     # answer
     # policy
 # Create your models here.
+
+
