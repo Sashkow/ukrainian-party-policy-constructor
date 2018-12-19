@@ -34,12 +34,20 @@ PostgreSQL DP setting up
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myproject',
-        'USER': 'myprojectuser',
-        'PASSWORD': 'password',
+        'NAME': 'demo',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
 
 
+Change root (user "postgres") pass:
+  sudo -u postgres psql
+  \password postgres;                           (for demo pass "demoPass")
+  \q
+
+
+DB dump:
+  pg_dump -h localhost -O -F t -c -U postgres demo | gzip -c > demo-filedump.gz;
