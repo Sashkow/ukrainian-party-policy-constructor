@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from    django.urls import path
 
 from django.conf.urls import include
 from questionnaire.views import to_policies, questionnaire
@@ -26,5 +26,9 @@ urlpatterns = [
     path(r'forms/', include(forms_builder.forms.urls)),
     path(r'to_policies/', to_policies, name='to_policies'),
     path(r'questionnaire/', questionnaire, name='questionnaire'),
+    #  path(r'demo/', demo_pub, name='demo'),
 
 ]
+
+
+# http://127.0.0.1:8000/admin/

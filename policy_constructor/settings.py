@@ -44,7 +44,6 @@ INSTALLED_APPS = [
 
 
     'questionnaire',
-    'demo_pub'
 ]
 
 SITE_ID = 1

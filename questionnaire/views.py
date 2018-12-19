@@ -45,6 +45,10 @@ def set_username(sender=None, form=None, entry=None, **kwargs):
     request = sender
 
 
+def demo_form(request):
+    return render(request, 'demo_form.html', {})
+
+
 
 
 
