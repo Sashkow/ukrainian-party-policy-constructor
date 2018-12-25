@@ -35,7 +35,7 @@ class WeaponVar(DjangoChoices):
 
 
 class demo_model(models.Model):
-    Author = models.CharField(max_length=30, default='Author')
+    Author = models.CharField(max_length=30, verbose_name='Author')
     Name = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     Title = models.CharField(max_length=200)
     Condition = models.CharField(max_length=20,
@@ -57,7 +57,7 @@ class demo_model(models.Model):
     def __str__(self):
         return self.Title
 
-
+	
 
 # http://qaru.site/questions/7317522/get-data-from-postgresql-to-django-and-display-it-in-html
 # import psycopg2

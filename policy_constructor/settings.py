@@ -143,3 +143,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+FORMS_BUILDER_LABEL_MAX_LENGTH = 1500

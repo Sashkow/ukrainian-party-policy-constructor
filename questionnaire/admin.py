@@ -8,7 +8,12 @@ admin.site.register(Policy, PolicyAdmin)
 
 
 from .models import demo_model
-
 admin.site.register(demo_model)
+
+
+
+# from .models import CustomW
+
+# admin.site.register(CustomW)
 
 # Register your models here.
