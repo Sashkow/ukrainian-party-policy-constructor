@@ -106,3 +106,7 @@ env3/
 
 
 .idea/
+
+
+qestionnaire/migrations/
+demo_pub/migrations/

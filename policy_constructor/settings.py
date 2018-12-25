@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
     'forms_builder.forms',
 
+    'import_export',
 
     'questionnaire',
     'demo_pub'
@@ -107,6 +109,8 @@ DATABASES = {
 }
 
 
+
+
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -144,3 +148,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '../static_files/'
+
+FORMS_BUILDER_LABEL_MAX_LENGTH = 1500
+

@@ -26,5 +26,4 @@ urlpatterns = [
     path(r'forms/', include(forms_builder.forms.urls)),
     path(r'to_policies/', to_policies, name='to_policies'),
     path(r'questionnaire/', questionnaire, name='questionnaire'),
-
 ]
