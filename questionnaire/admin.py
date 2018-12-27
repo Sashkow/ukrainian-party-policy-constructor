@@ -13,6 +13,7 @@ class PolicyAdmin(ImportExportMixin, admin.ModelAdmin):
 class QuestionAnswerResource(ModelResource):
     class Meta:
         model = QuestionAnswer
+
         # fields = ['name', 'author', ]
 
 
@@ -20,6 +21,7 @@ class QuestionAnswerAdmin(ImportExportMixin, admin.ModelAdmin):
     list_display = [field.name for field in QuestionAnswer._meta.fields]
     exclude = ['ID']
     resource_class = QuestionAnswerResource
+    list_per_page = 20
 
 
 admin.site.register(Policy, PolicyAdmin)

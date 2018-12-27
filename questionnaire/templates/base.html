@@ -1,14 +1,44 @@
+{% load static %}
+
 <!doctype html>
+
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  {% block title %}
-  {% endblock %}
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+    <meta charset="utf-8">
+    {% block title %}
+    {% endblock %}
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'questionnaire/css/fullpage.css' %}" />
+    <link rel="stylesheet" href="{% static 'questionnaire/css/bootstrap.css' %}" >
+    <link rel="stylesheet" href="{% static 'questionnaire/css/styles.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'questionnaire/css/examples.css' %}" />
+
+
+    <script type="text/javascript" src="{% static 'questionnaire/js/scrolloverflow.min.js' %}"></script>
+    <script src="{% static 'questionnaire/js/easings.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'questionnaire/js/fullpage.js' %}"></script>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+            var myFullpage = new fullpage('#fullpage', {
+
+                sectionsColor: ['#f0b87fff', '#f8de90ff', '#f5ec9bff', '#cad893ff', '#7bd5b4ff','#bee6d2ff'],
+                anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+	            menu: '#myMenu',
+                slidesNavigation: true,
+
+            });
+        </script>
 
 </head>
 
@@ -17,6 +47,5 @@
       <h1>Ось</h1>
     {% endblock %}
 
-  <script src="js/scripts.js"></script>
 </body>
 </html>
