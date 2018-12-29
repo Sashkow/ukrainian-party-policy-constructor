@@ -5,9 +5,26 @@
 {% endblock %}
 
 {% block body %}
+  <div id="fullpage">
+  <div class="section active" id="section0">
+    <div class="container-fluid">
+        <div class="row mb-5">
+            <div class="col-lg-10 offset-lg-1 col-sm-12 col-xs-12 col-md-12">
+                <h1 id="id_ostannie_pitannia_iak_budemo_peremagati_v_informatsiinii_viini">Політична програма партії ""</h1></div>
+        </div>
+          <div class="row" >
+              <div class="col-lg-10 offset-lg-1 col-sm-12 col-xs-12 col-md-12" align = "left">
+                {% autoescape off %}
+                  {{answers}}
+                {% endautoescape %}
+              </div>
+
+          </div>
+    </div>
+  </div>
+  </div>
+
   <h1>Твої відповіді</h1>
-  {% autoescape off %}
-    <p>{{answers}}</p>
-  {% endautoescape %}
+
 
 {% endblock %}

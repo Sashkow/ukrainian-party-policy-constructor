@@ -27,6 +27,15 @@ h1 {
   font-weight: 300;
   margin-top: 0;
 }
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
 .control-group {
   display: inline-block;
   vertical-align: top;
