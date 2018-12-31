@@ -110,3 +110,5 @@ env3/
 
 qestionnaire/migrations/
 demo_pub/migrations/
+
+policy_constructor/psswrd.py
