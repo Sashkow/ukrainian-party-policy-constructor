@@ -16,8 +16,7 @@ def field_slug_to_label(slug):
     if len(field)==1:
         label = field[0].label
     else:
-        label = slug
-    return label
+        return None
 
 def to_policies(request):
     print(request)
@@ -36,6 +35,9 @@ def questionnaire(request):
             preamble = '<p>' + preamble  + '(' + party + ')' + '</p>'
         else:
             preamble = '<p>' + "Українці," + '</p>'
+
+
+        question_answers = {field_slug_to_label(item):request.POST.getlist(item) for item in request if item}
 
 
 
