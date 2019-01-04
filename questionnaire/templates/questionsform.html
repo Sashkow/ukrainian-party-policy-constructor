@@ -1,17 +1,18 @@
+{% load static %}
 <div class="section" id="section1">
     {% for key, item in question_answers.items %}
     <div class="slide" id="slide0">
-        <div class="container-fluid">
-            <div class="row mb-5">
-                <div class="col-lg-10 offset-lg-1 col-sm-12 col-xs-12 col-md-12">
+       <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
+                <div class="question">
+                    <img src="{% static 'questionnaire/css/img/chesno.png' %}">
                     <h2>{{item.category}}</h2>
 
                     <h3>{{item.subcategory}}</h3><br>
-                    <h1>{{item.question}}</h1>
-                </div>
-            </div>
-              <div class="row" >
-                  <div class = "col-8 offset-2"><div class = "answers">
+                    <h2 align="left">{{item.question}}</h2><br>
+
+
+                 <div class = "answers">
                       {% for answer in item.answers %}
                           <label class="control control--{{item.answer_type}}" for="{{answer.underscore_slug}}"> {{answer.value}}
                               <input  type="{{item.answer_type}}" name="{{item.underscore_slug}}" id="{{answer.underscore_slug}}" value="{{answer.value}}" >
@@ -20,9 +21,9 @@
                       {% endfor %}
                       {% if forloop.last %}
                           <div class ="row">
-                                <div class ="col">
+                                <div class ="col" align="center">
                                     <div style="clear:left;">&nbsp;</div>
-                                    <input type="submit" value="Submit">
+                                    <input  type="submit" сlass="btn btn-primary" value="ЗГЕНЕРУВАТИ ПОЛІТИЧНУ ПРОГРАМУ">
                                 </div>
                             </div>
                       {% endif %}

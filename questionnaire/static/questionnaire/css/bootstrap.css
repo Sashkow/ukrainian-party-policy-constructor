@@ -2335,13 +2335,15 @@ fieldset:disabled a.btn {
 .btn-primary {
   color: #fff;
   background-color: #909090ff;
+  font-family: Impact , Charcoal,sans-serif;
   border-color: #909090ff;
 }
 
 .btn-primary:hover {
-  color: #fff;
-  background-color: #434343ff;
-  border-color: #434343ff;
+  color: black;
+  font-family: Impact , Charcoal,sans-serif;
+  background-color: #ffbe31;
+  border-color: #ffbe31;
 }
 
 .btn-primary:focus, .btn-primary.focus {
