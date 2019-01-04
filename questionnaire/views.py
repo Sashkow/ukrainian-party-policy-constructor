@@ -40,13 +40,16 @@ def questionnaire(request):
             preambles = preambles[0].policies
             preambles = parse_policies(preambles)
             preamble, party = select_random(preambles)
-            preamble = '<p>' + preamble  + '(' + party + ')' + '</p>'
+            preamble = '<p>' + preamble + '</p>'
         else:
             preamble = '<p>' + "Українці," + '</p>'
 
+        answers = []
+        for item in request.POST:
+            current_answers = request.POST.getlist(item)
+            answers = answers + current_answers
 
         # question_answers = {field_slug_to_label(item):request.POST.getlist(item) for item in request if item}
-
 
 
         for item in request.POST:
@@ -54,23 +57,18 @@ def questionnaire(request):
                 party_name = request.POST[item]
             elif item == 'user_email':
                 user_email = request.POST[item]
-            elif item!='csrfmiddlewaretoken':
-                question = field_slug_to_label(item)
-                answers = request.POST.getlist(item)
-                for answer in answers:
-                    policies = QuestionAnswer.objects.filter(
-                        question=question,
-                        answer=answer
-                    )
-                    if policies:
-                        policies = policies[0].policies
-                    else:
-                        print("no policies for",question, answer)
 
-                    parsed = parse_policies(policies)
-                    policy, party = select_random(parsed)
-                    political_platform.append('<p>' + policy + '(' + party + ')' + '</p>')
 
+
+        question_answers = QuestionAnswer.objects.filter(answer__in=answers).order_by('id')
+        political_platform = []
+        for question_answer in question_answers:
+            question = question_answer.question
+            answer = question_answer.answer
+            policies = question_answer.policies
+            parsed = parse_policies(policies)
+            policy, party = select_random(parsed)
+            political_platform.append('<p>' + policy + '</p>')
         political_platform = '\n'.join(political_platform)
 
         if user_email:
@@ -82,15 +80,21 @@ def questionnaire(request):
                 fail_silently=False,
             )
 
-        return render(request, 'to_policies.html', {'answers': political_platform, "party_name":party_name, "preamble":preamble})
+        return render(request, 'to_policies.html',
+                      {'answers': political_platform,
+                       "party_name":party_name,
+                       "preamble":preamble}
+        )
     else:
         # if method GET
-        question_answers = QuestionAnswer.objects.filter(~Q(question="Преамбули"))
+        question_answers = QuestionAnswer.objects.filter(~Q(question="Преамбули")).order_by('id')
         quas = OrderedDict()
+
         for question_answer in question_answers:
             qa_obj = mock.Mock()
             qa_obj.question = question_answer.question
-            qa_obj.underscore_slug = slugify(qa_obj.question).replace('-','_')
+            qa_obj.underscore_slug = question_answer.slug  #slugify(qa_obj.question).replace('-','_')
+
             answer_obj = mock.Mock()
             answer_obj.value = question_answer.answer
             answer_obj.slug = slugify(answer_obj.value)

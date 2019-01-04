@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from questionnaire.models import QuestionAnswer
+from slugify import slugify
 
 
 class Command(BaseCommand):
@@ -11,4 +12,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         qua = QuestionAnswer.objects.all()
         for item in qua:
-            pass
+            item.slug = slugify(item.question).replace('-', '_')
+            item.save()
+
