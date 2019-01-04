@@ -1,0 +1,63 @@
+<div class="section" id="section1">
+    {% for key, item in question_answers.items %}
+    <div class="slide" id="slide0">
+        <div class="container-fluid">
+            <div class="row mb-5">
+                <div class="col-lg-10 offset-lg-1 col-sm-12 col-xs-12 col-md-12">
+                    <h2>{{item.category}}</h2>
+
+                    <h3>{{item.subcategory}}</h3><br>
+                    <h1>{{item.question}}</h1>
+                </div>
+            </div>
+              <div class="row" >
+                  <div class = "col-8 offset-2"><div class = "answers">
+                      {% for answer in item.answers %}
+                          <label class="control control--{{item.answer_type}}" for="{{answer.underscore_slug}}"> {{answer.value}}
+                              <input  type="{{item.answer_type}}" name="{{item.underscore_slug}}" id="{{answer.underscore_slug}}" value="{{answer.value}}" >
+                              <div class="control__indicator"></div>
+                          </label>
+                      {% endfor %}
+                      {% if forloop.last %}
+                          <div class ="row">
+                                <div class ="col">
+                                    <div style="clear:left;">&nbsp;</div>
+                                    <input type="submit" value="Submit">
+                                </div>
+                            </div>
+                      {% endif %}
+                  </div>
+                  </div></div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+</div>
+
+
+
+    <div class="slide" id="slide1">
+        <div class="container-fluid">
+            <div class="row mb-5">
+                <div class="col-lg-10 offset-lg-1 col-sm-12 col-xs-12 col-md-12">
+                    <h1 id="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami" >Що ви плануєте зробити із українськими збройними силами?</h1></div>
+            </div>
+              <div class="row" >
+                  <div class = "col-8 offset-2"><div class = "answers">
+                      <label class="control control--checkbox" for="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_0">Створення системи військового резерву
+                          <input type="checkbox" name="shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami" value="Створення системи військового резерву" class="multiplechoicefield" id="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_0"><div class="control__indicator"></div></label>
+                      <label class="control control--checkbox" for="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_1">Відновлення ядерного статусу
+                          <input type="checkbox" name="shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami" value="Відновлення ядерного статусу" class="multiplechoicefield" id="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_1" ><div class="control__indicator"></div></label>
+                      <label class="control control--checkbox" for="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_2">Перехід до контрактної армії
+                          <input  type="checkbox" name="shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami" value="Перехід до контрактної армії" class="multiplechoicefield"  id="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_2"><div class="control__indicator"></div></label>
+                      <label class="control control--checkbox" for="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_3">Реформування та переоснащення армії
+                          <input  type="checkbox" name="shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami" value="Реформування та переоснащення армії" class="multiplechoicefield"  id="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_3" ><div class="control__indicator"></div></label>
+
+                  </div>
+                  </div>
+            </div>
+
+        </div>
+    </div>
+</div>

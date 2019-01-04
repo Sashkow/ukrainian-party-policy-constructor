@@ -8,6 +8,14 @@ from questionnaire.models import QuestionAnswer
 from django.core.mail import send_mail
 import html2text
 
+import mock
+from slugify import slugify
+
+from django.db.models import Q
+
+from collections import OrderedDict
+
+
 from django.contrib.messages import get_messages
 # Form.objects.get(slug='golosuvalka')
 
@@ -37,7 +45,7 @@ def questionnaire(request):
             preamble = '<p>' + "Українці," + '</p>'
 
 
-        question_answers = {field_slug_to_label(item):request.POST.getlist(item) for item in request if item}
+        # question_answers = {field_slug_to_label(item):request.POST.getlist(item) for item in request if item}
 
 
 
@@ -75,8 +83,31 @@ def questionnaire(request):
             )
 
         return render(request, 'to_policies.html', {'answers': political_platform, "party_name":party_name, "preamble":preamble})
+    else:
+        # if method GET
+        question_answers = QuestionAnswer.objects.filter(~Q(question="Преамбули"))
+        quas = OrderedDict()
+        for question_answer in question_answers:
+            qa_obj = mock.Mock()
+            qa_obj.question = question_answer.question
+            qa_obj.underscore_slug = slugify(qa_obj.question).replace('-','_')
+            answer_obj = mock.Mock()
+            answer_obj.value = question_answer.answer
+            answer_obj.slug = slugify(answer_obj.value)
+            answer_obj.underscore_slug = answer_obj.slug.replace('-', '_') + '_' + str(question_answer.id)
 
-    return render(request, 'questionnaire.html')
+            qa_obj.answers = [answer_obj,]
+            qa_obj.category = question_answer.category
+            qa_obj.subcategory = question_answer.subcategory
+            qa_obj.answer_type = question_answer.answer_type
+
+            if question_answer.question in quas:
+                quas[question_answer.question].answers.append(answer_obj)
+            else:
+                quas[question_answer.question] = qa_obj
+
+
+        return render(request, 'questionnaire.html', {"question_answers":quas,})
 
 
 
