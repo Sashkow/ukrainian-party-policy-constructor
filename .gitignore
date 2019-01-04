@@ -108,7 +108,10 @@ env3/
 .idea/
 
 
-qestionnaire/migrations/
+
+qestionnaire/migrations/*
+
 demo_pub/migrations/
 
 policy_constructor/psswrd.py
+

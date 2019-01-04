@@ -11,4 +11,4 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         qua = QuestionAnswer.objects.all()
         for item in qua:
-            item.slug =
+            pass
