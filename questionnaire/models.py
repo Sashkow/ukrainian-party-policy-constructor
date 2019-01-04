@@ -10,6 +10,7 @@ class QuestionAnswer(models.Model):
     category = models.CharField(max_length=200, null=True, blank=True)
     subcategory = models.CharField(max_length=200, null=True, blank=True)
     question = models.CharField(max_length=1000)
+    slug = models.CharField(max_length=1000, null=True, blank=True)
     answer = models.CharField(max_length=1000)
     answer_type = models.CharField(max_length=200, null=True, blank=True)
     policies = models.TextField(null=True, blank=True)
