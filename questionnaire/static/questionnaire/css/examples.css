@@ -2,9 +2,10 @@
 /* Reset CSS
  * --------------------------------------- */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
-form,fieldset,input,textarea,p,blockquote,th,td {
+form,fieldset,input,textarea,p,blockquote,th,td,p{
     padding: 0;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 a{
 	text-decoration:none;
@@ -32,11 +33,11 @@ caption,th {
 
 }
 h1,h2,h3,h4,h5,h6 {
-    font-weight: normal;
+   
     font-size: 100%;
     margin:0;
     padding:0;
-    color:#444;
+    
 }
 q:before,q:after {
     content:'';
@@ -59,20 +60,58 @@ body{
 	position: relative;
 }
 h1{
-	font-size: 2.5vw;
-    font-weight: bold;
+	font-size: 32px;
+    
+    color:#FFBE1D;
+    font-family: Impact , Charcoal,sans-serif;
+ 
 }
+h5{
+    color:#ededed;   ;
+	font-size: 20px;
+    font-weight: bold;
+  
+}
+h2{
+    text-transform: uppercase;
+	font-size: 20px;
+    font-weight: bold;
+  
+}
+h3{
+    color:#46a5a5; 
+	text-transform: uppercase;
+    font-weight: bold;
+  
+}
+
 p{
-	font-size: 0.8em;
+    color: #ededed  ;
+	font-size: 0.9em;
 }
 .intro p{
 	width: 50%;
 	margin: 0 auto;
 	font-size: 1.5em;
 }
+#section1{
+    background-image:url("img/back.png");
+    background-size: 100% 100%;
+    background-size: cover;
+}
+#section0{
+    background-image:url("img/back0.png");
+    background-size: 100% 100%;
+    background-size: cover;
+    
+}
 .section{
 	text-align:center;
 }
+.answers{
+    text-align: left;
+}
+
 #menu li {
 	display:inline-block;
 	margin: 10px;
