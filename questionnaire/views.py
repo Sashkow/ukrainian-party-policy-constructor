@@ -40,9 +40,9 @@ def questionnaire(request):
             preambles = preambles[0].policies
             preambles = parse_policies(preambles)
             preamble, party = select_random(preambles)
-            preamble = '<p>' + preamble + '</p>'
+            preamble = '<p class="preamble">' + preamble + '</p>'
         else:
-            preamble = '<p>' + "Українці," + '</p>'
+            preamble = '<p class="preamble">' + "Українці," + '</p>'
 
         answers = []
         for item in request.POST:
@@ -73,9 +73,9 @@ def questionnaire(request):
 
         if user_email:
             send_mail(
-                'Політична програма партії "'+party_name+'"',
+                'Політична програма партії "'+ party_name + '"',
             '\n'.join([html2text.html2text(political_platform), html2text.html2text(preamble)]),
-                'polander@populi.chesno.org',
+                'chasnyk@populi.chesno.org',
                 [user_email,],
                 fail_silently=False,
             )
