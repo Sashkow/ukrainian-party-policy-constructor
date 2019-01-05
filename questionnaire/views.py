@@ -44,6 +44,8 @@ def questionnaire(request):
         else:
             preamble = '<p class="preamble">' + "Українці," + '</p>'
 
+
+
         answers = []
         for item in request.POST:
             current_answers = request.POST.getlist(item)
@@ -68,7 +70,7 @@ def questionnaire(request):
             policies = question_answer.policies
             parsed = parse_policies(policies)
             policy, party = select_random(parsed)
-            political_platform.append('<p>' + policy + '</p>')
+            political_platform.append('<p class="fragment">' + policy + '</p>')
         political_platform = '\n'.join(political_platform)
 
         if user_email:
