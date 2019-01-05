@@ -1,21 +1,22 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}
   <title>Політична програма</title>
 {% endblock %}
 
 {% block body %}
-  <div id="fullpage">
-  <div class="section active" id="section0">
-    <div class="container-fluid">
-        <div class="row mb-5">
-            <div class="col-lg-10 offset-lg-1 col-sm-12 col-xs-12 col-md-12">
-                <h1 id="id_ostannie_pitannia_iak_budemo_peremagati_v_informatsiinii_viini">Політична програма партії "{{party_name}}"</h1></div>
+
+    <div class="container-fluid h-100">
+        <div class="row" >
+            <div class="col-10 offset-1" id="paper">
+
+                <div class="container" id="party_name">
+                    <img class="curle" src="{% static 'questionnaire/css/img/curle1.png' %}">
+                <h1 id="id_ostannie_pitannia_iak_budemo_peremagati_v_informatsiinii_viini">Політична програма партії{{party_name}}</h1>
+                <img class="curle" src="{% static 'questionnaire/css/img/curle2.png' %}">
+            </div>
 
 
-        </div>
-          <div class="row" >
-              <div class="col-lg-10 offset-lg-1 col-sm-12 col-xs-12 col-md-12" align = "left">
                 {% autoescape off %}
                   {{preamble}}
                 {% endautoescape %}
@@ -23,12 +24,13 @@
                 {% autoescape off %}
                   {{answers}}
                 {% endautoescape %}
-              </div>
+
 
           </div>
     </div>
   </div>
-  </div>
+
+
 
 
 {% endblock %}
