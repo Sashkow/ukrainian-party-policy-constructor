@@ -10,6 +10,9 @@ form,fieldset,input,textarea,p,blockquote,th,td,p{
 a{
 	text-decoration:none;
 }
+html,body {
+  height: 100%;
+}
 table {
     border-spacing: 0;
 }
@@ -50,9 +53,16 @@ abbr,acronym { border: 0;
  * --------------------------------------- */
 body{
 	font-family: arial,helvetica;
-	color: #333;
-	color: rgba(0,0,0,0.5);
+	 background-image:url("img/final.png");
+    background-size: 100% 100%;
+    background-size: cover;
 }
+
+#paper{
+ height:100%;
+padding:3%;
+ background:#fff;
+ }
 .wrap{
 	margin-left: auto;
 	margin-right: auto;
@@ -105,6 +115,7 @@ p{
     background-size: cover;
     
 }
+
 .section{
 	text-align:center;
 }

@@ -33,6 +33,7 @@ h1 {
     padding: 5%;
   
 }
+
 input[type=submit] {
     padding:5px 15px;
     background:#ccc;
@@ -57,7 +58,7 @@ input:hover[type=submit]{
   background-color: #54c4bb;
   color:white;}
 }
-img {
+.logo{
   display: block;
   max-width:100px;
  
@@ -94,11 +95,21 @@ img {
     background-image: url("img/nav.jpg");
    
 }
-img {
-  display: block;
-  width: 100%;
-  height: auto;
+
+#party_name{
+
+    flex-direction:row;
+    display: flex;
+    align-items: center;
 }
+.curle{
+
+     max-width:70px;
+     margin:1%;
+     width: auto;
+     height: auto;
+}
+
 .control input {
   position: absolute;
   z-index: -1;
