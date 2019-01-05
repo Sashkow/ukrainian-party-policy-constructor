@@ -32,11 +32,13 @@ h1 {
 .preamble, .fragment{
     text-indent: 20px;
     color: black;
-    font-size:20px;
+    font-size:17px;
+    text-align:justify;
 
 }
 
 .preamble{
+    padding:1%;
     font-style: oblique;
     font-weight:bold;
 }
@@ -72,7 +74,7 @@ input:hover[type=submit]{
 }
 .logo{
   display: block;
-  max-width:100px;
+  max-width:73px;
  
   width: auto;
   position: absolute;
