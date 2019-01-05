@@ -40,10 +40,10 @@ def questionnaire(request):
             preambles = preambles[0].policies
             preambles = parse_policies(preambles)
             preamble, party = select_random(preambles)
-            preamble = '<p class="preamble">' + preamble + '</p>'
+            preamble_abstracts = ['<p class="preamble">' + abstract + '</p>' for abstract in preamble.split('\n') ]
+            preamble = '\n'.join(preamble_abstracts)
         else:
             preamble = '<p class="preamble">' + "Українці," + '</p>'
-
 
 
         answers = []
@@ -64,19 +64,30 @@ def questionnaire(request):
 
         question_answers = QuestionAnswer.objects.filter(answer__in=answers).order_by('id')
         political_platform = []
+        current_category = ""
+        current_subcategory = ""
         for question_answer in question_answers:
             question = question_answer.question
             answer = question_answer.answer
             policies = question_answer.policies
             parsed = parse_policies(policies)
             policy, party = select_random(parsed)
+            if question_answer.category != current_category:
+                current_category = question_answer.category
+                political_platform.append('<p class="category">' + current_category + '</p>')
+
+            if question_answer.subcategory != current_subcategory:
+                current_subcategory = question_answer.subcategory
+                political_platform.append('<p class="subcategory">' + current_subcategory + '</p>')
+
             political_platform.append('<p class="fragment">' + policy + '</p>')
+
         political_platform = '\n'.join(political_platform)
 
         if user_email:
             send_mail(
                 'Політична програма партії "'+ party_name + '"',
-            '\n'.join([html2text.html2text(political_platform), html2text.html2text(preamble)]),
+            '\n'.join([html2text.html2text(preamble), html2text.html2text(political_platform)]),
                 'chasnyk@populi.chesno.org',
                 [user_email,],
                 fail_silently=False,
