@@ -27,7 +27,7 @@ a{
 
 
 .preamble, .fragment{
-    text-indent: 20px;
+    text-indent: 3%;
     color: black;
     font-size:17px;
     text-align:justify;
@@ -45,6 +45,32 @@ a{
   
 }
 
+.category{
+    font-size: 22px;
+    font-style: oblique;
+    font-weight: bold;
+
+    padding-top:5%;
+    padding-left:5%;
+}
+.subcategory{
+    font-size: 17px;
+    font-style: oblique;
+    font-weight: bold;
+    color:grey;
+
+    padding-left:5%;
+}
+
+.finalTitle{ text-align:center;}
+
+@media (max-width: 800px){
+    .category{  font-size: 17px; }
+    .subcategory, .fragment, .preamble{  font-size: 12px; }
+    #finalcurve,#finalcurve1{ display:none; }
+
+
+}
 input[type=submit] {
     padding:5px 15px;
     background:#ccc;
@@ -69,16 +95,7 @@ input:hover[type=submit]{
   background-color: #54c4bb;
   color:white;}
 }
-.logo{
-  display: block;
-  max-width:73px;
- 
-  width: auto;
-  position: absolute;
-  top:8%;
-  left:6%;
-  height: auto;
-}
+
 .control-group {
   display: inline-block;
   vertical-align: top;
@@ -96,7 +113,7 @@ input:hover[type=submit]{
   padding-left: 30px;
   margin-bottom: 15px;
   cursor: pointer;
-  font-size: 18px;
+
 }
 
 .navbar{
@@ -108,18 +125,12 @@ input:hover[type=submit]{
 }
 
 #party_name{
-
+    padding:5%;
     flex-direction:row;
     display: flex;
     align-items: center;
 }
-.curle{
 
-     max-width:70px;
-     margin:1%;
-     width: auto;
-     height: auto;
-}
 
 .control input {
   position: absolute;
@@ -196,4 +207,5 @@ input:hover[type=submit]{
     from {background: #ccc;}
     to {background: #454545ff;}
 }
+
 

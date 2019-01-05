@@ -88,18 +88,25 @@ h3{
     font-weight: bold;
   
 }
-@media (max-width: 600px) {
-  h1 {
-    font-size: 25px;
-  }
-   h5{
-    padding-top:2%;
-    font-size: 12px;
-  }
-}
+
 .categ{
     text-transform:uppercase;
 }
+.logo{
+  display: block;
+  max-width:73px;
+  width: auto;
+  position: absolute;
+  top:8%;
+  left:6%;
+  height: auto;
+}
+label{
+  font-family: arial,helvetica;
+  color:#7f7f7f;
+  font-size:18px;
+}
+
 .faq{
     color: #ededed  ;
 	font-size: 0.9em;
@@ -127,3 +134,49 @@ h3{
 .answers{
     text-align: left;
 }
+.curle{
+
+     max-width:70px;
+     margin:1%;
+     width: auto;
+     height: auto;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 25px;
+  }
+   h5{
+    padding-top:2%;
+    font-size: 12px;
+  }
+  .categ{
+    font-size: 17px;
+  }
+   h3{
+    font-size: 15px;
+  }
+   h2{
+    font-size: 16px;
+  }
+  .logo{
+  display:none;
+  }
+  label{
+    font-size: 13px;
+  }
+  .curle{
+
+     max-width:40px;
+
+}
+    .header{
+    padding-top:20%;
+    padding-bottom:2%;
+    }
+  #section1{
+
+    background-image:url("img/back_s.png");
+}}
+
+

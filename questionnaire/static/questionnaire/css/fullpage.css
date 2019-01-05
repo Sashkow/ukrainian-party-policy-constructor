@@ -49,6 +49,12 @@ html.fp-enabled,
     width: 100%;
     height: 100%;
 }
+@media (max-width: 600px) {
+.fp-tableCell {
+
+ vertical-align:top;}}
+
+
 .fp-slidesContainer {
     float: left;
     position: relative;
@@ -80,6 +86,11 @@ html.fp-enabled,
     right: 15px;
     border-width: 38.5px 0 38.5px 34px;
     border-color: transparent transparent transparent #fff;
+}
+@media(max-width:600px){
+.fp-controlArrow.fp-prev , .fp-controlArrow.fp-next{
+    display: none;
+}
 }
 .fp-scrollable {
     overflow: hidden;
