@@ -55,6 +55,9 @@
     <script src="{% static 'questionnaire/js/popper.js' %}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="{% static 'questionnaire/js/bootstrap.js' %}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script type="text/javascript">
+          $('a, input, select').prop('tabIndex', -1);
+        </script>
+    <script type="text/javascript">
             var myFullpage = new fullpage('#fullpage', {
 
                 sectionsColor: ['#f0b87fff', '#f8de90ff', '#f5ec9bff', '#cad893ff', '#7bd5b4ff','#bee6d2ff'],
