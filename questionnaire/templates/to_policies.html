@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}
   <title>Політична програма</title>
+<link rel="shortcut icon" href="{% static 'questionnaire/css/img/favicon.png' %}" type="image/x-icon">
 {% endblock %}
 
 {% block body %}
@@ -11,15 +12,16 @@
             <div class="col-10 offset-1" id="paper">
 
                 <div class="container" id="party_name">
-                    <img class="curle" src="{% static 'questionnaire/css/img/curle1.png' %}">
+                    <img class="curle" id="finalcurve" src="{% static 'questionnaire/css/img/curle1.png' %}">
 
                     {% if party_name %}
-                        <h1 id="id_ostannie_pitannia_iak_budemo_peremagati_v_informatsiinii_viini">Політична програма партії "{{party_name}}"</h1>
+                        <h1 class="finalTitle" id="id_ostannie_pitannia_iak_budemo_peremagati_v_informatsiinii_viini">Політична програма партії "{{party_name}}"</h1>
                     {% else %}
-                        <h1 id="id_ostannie_pitannia_iak_budemo_peremagati_v_informatsiinii_viini">Політична програма партії</h1>
+                        <h1 class="finalTitle" id="id_ostannie_pitannia_iak_budemo_peremagati_v_informatsiinii_viini">Політична програма партії</h1>
                     {% endif %}
 
-                <img class="curle" src="{% static 'questionnaire/css/img/curle2.png' %}">
+                <img class="curle" id="finalcurve1" src="{% static 'questionnaire/css/img/curle2.png' %}">
+
             </div>
 
 
