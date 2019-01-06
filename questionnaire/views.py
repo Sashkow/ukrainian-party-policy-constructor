@@ -14,6 +14,28 @@ from slugify import slugify
 from django.db.models import Q
 
 from collections import OrderedDict
+import io
+
+
+# import io.StringIO as StringIO
+from xhtml2pdf import pisa
+from django.template.loader import get_template
+from django.template import Context
+from django.http import HttpResponse
+from html import escape
+
+
+def render_to_pdf(template_src, context_dict):
+    template = get_template(template_src)
+    context = context_dict
+    html  = template.render(context)
+    result = ""
+
+    pdf = pisa.pisaDocument(html, result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return HttpResponse('We had some errors<pre>%s</pre>' % escape(html))
+
 
 
 from django.contrib.messages import get_messages
@@ -57,6 +79,7 @@ def questionnaire(request):
         for item in request.POST:
             if item == 'party_name':
                 party_name = request.POST[item]
+                party_name = party_name.strip()
             elif item == 'user_email':
                 user_email = request.POST[item]
 
@@ -85,8 +108,12 @@ def questionnaire(request):
         political_platform = '\n'.join(political_platform)
 
         if user_email:
+            if party_name:
+                subject = 'Політична програма партії "'+ party_name + '"'
+            else:
+                subject = 'Політична програма партії'
             send_mail(
-                'Політична програма партії "'+ party_name + '"',
+                subject,
             '\n'.join([html2text.html2text(preamble), html2text.html2text(political_platform)]),
                 'chasnyk@populi.chesno.org',
                 [user_email,],
@@ -133,6 +160,17 @@ def set_username(sender=None, form=None, entry=None, **kwargs):
     request = sender
 
 
+def to_pdf(request):
+
+    results = {'html':"<h1>Hwllo</h1>", 'other':"other results"}
+    #Retrieve data or whatever you need
+    return render_to_pdf(
+            'to_pdf.html',
+            {
+                'pagesize':'A4',
+                'mylist': results,
+            }
+        )
 
 
 

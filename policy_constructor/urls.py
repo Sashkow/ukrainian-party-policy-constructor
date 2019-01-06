@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path
 
 from django.conf.urls import include
-from questionnaire.views import to_policies, questionnaire
+from questionnaire.views import to_policies, questionnaire, to_pdf
+
 
 import forms_builder.forms.urls # add this import
 
@@ -26,4 +27,5 @@ urlpatterns = [
     path(r'forms/', include(forms_builder.forms.urls)),
     path(r'to_policies/', to_policies, name='to_policies'),
     path(r'questionnaire/', questionnaire, name='questionnaire'),
+    path(r'to_pdf/', to_pdf, name='to_pdf'),
 ]
