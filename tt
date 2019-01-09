@@ -1,0 +1,114 @@
+COMMAND
+/lib/systemd/systemd --system --deserialize 24
+[kthreadd]
+[ksoftirqd/0]
+[kworker/0:0H]
+[rcu_sched]
+[rcu_bh]
+[migration/0]
+[watchdog/0]
+[watchdog/1]
+[migration/1]
+[ksoftirqd/1]
+[kworker/1:0H]
+[kdevtmpfs]
+[netns]
+[perf]
+[khungtaskd]
+[writeback]
+[ksmd]
+[khugepaged]
+[crypto]
+[kintegrityd]
+[bioset]
+[kblockd]
+[ata_sff]
+[md]
+[devfreq_wq]
+[kswapd0]
+[vmstat]
+[fsnotify_mark]
+[ecryptfs-kthrea]
+[kthrotld]
+[acpi_thermal_pm]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[scsi_eh_0]
+[scsi_tmf_0]
+[scsi_eh_1]
+[scsi_tmf_1]
+[ipv6_addrconf]
+[deferwq]
+[charger_manager]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[bioset]
+[kpsmoused]
+[kworker/0:1H]
+[jbd2/vda1-8]
+[ext4-rsv-conver]
+[kworker/1:1H]
+/lib/systemd/systemd-journald
+[kauditd]
+/sbin/dhclient -1 -v -pf /run/dhclient.ens3.pid -lf /var/lib/dhcp/dhclient.ens3.leases -I -df /var/lib/dhcp/dhclient6.ens3.leases ens3
+/sbin/dhclient -1 -v -pf /run/dhclient.ens3.pid -lf /var/lib/dhcp/dhclient.ens3.leases -I -df /var/lib/dhcp/dhclient6.ens3.leases ens3
+/usr/lib/accountsservice/accounts-daemon
+/usr/sbin/cron -f
+/usr/sbin/rsyslogd -n
+/lib/systemd/systemd-logind
+/usr/bin/mongod --config /etc/mongodb.conf
+/usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+[kworker/1:1]
+/usr/sbin/sshd -D
+[kworker/1:0]
+[kworker/0:1]
+[kworker/u4:2]
+sshd: populi [priv]
+[kworker/0:2]
+sshd: populi@pts/0
+-bash
+su
+bash
+mc
+bash -rcfile .bashrc
+[kworker/u4:1]
+ps -eo args
+nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+php-fpm: master process (/etc/php/7.0/fpm/php-fpm.conf)
+php-fpm: pool www
+php-fpm: pool www
+/usr/bin/uwsgi --ini /usr/share/uwsgi/conf/default.ini --ini /etc/uwsgi/apps-enabled/adbusters.ini --daemonize /var/log/uwsgi/app/adbusters.log
+/home/zvity/miniconda3/envs/testzvity/bin/python /home/zvity/miniconda3/envs/testzvity/bin/gunicorn --access-logfile - --workers 2 --timeout 1000 --bind unix:/home/zvity/www/zvity/system.sock system.wsgi:application
+/home/zvity/miniconda3/envs/testzvity/bin/python /home/zvity/miniconda3/envs/testzvity/bin/gunicorn --access-logfile - --workers 2 --timeout 1000 --bind unix:/home/zvity/www/zvity/system.sock system.wsgi:application
+/home/zvity/miniconda3/envs/testzvity/bin/python /home/zvity/miniconda3/envs/testzvity/bin/gunicorn --access-logfile - --workers 2 --timeout 1000 --bind unix:/home/zvity/www/zvity/system.sock system.wsgi:application
+/home/zvity/miniconda3/envs/zvityenv/bin/python /home/zvity/miniconda3/envs/zvityenv/bin/gunicorn --access-logfile - --workers 2 --timeout 300 --bind unix:/home/zvity/www/deputats.prod/system.sock system.wsgi:application
+/home/zvity/miniconda3/envs/zvityenv/bin/python /home/zvity/miniconda3/envs/zvityenv/bin/gunicorn --access-logfile - --workers 2 --timeout 300 --bind unix:/home/zvity/www/deputats.prod/system.sock system.wsgi:application
+/home/zvity/miniconda3/envs/zvityenv/bin/python /home/zvity/miniconda3/envs/zvityenv/bin/gunicorn --access-logfile - --workers 2 --timeout 300 --bind unix:/home/zvity/www/deputats.prod/system.sock system.wsgi:application
+/usr/bin/uwsgi --ini /usr/share/uwsgi/conf/default.ini --ini /etc/uwsgi/apps-enabled/adbusters.ini --daemonize /var/log/uwsgi/app/adbusters.log
+/usr/bin/uwsgi --ini /usr/share/uwsgi/conf/default.ini --ini /etc/uwsgi/apps-enabled/adbusters.ini --daemonize /var/log/uwsgi/app/adbusters.log
+/bin/login --
+-bash
+nginx: worker process
+nginx: worker process
+/usr/lib/postgresql/9.5/bin/postgres -D /var/lib/postgresql/9.5/main -c config_file=/etc/postgresql/9.5/main/postgresql.conf
+postgres: checkpointer process   
+postgres: writer process   
+postgres: wal writer process   
+postgres: autovacuum launcher process   
+postgres: stats collector process   
+/lib/systemd/systemd-timesyncd
+/lib/systemd/systemd-udevd
