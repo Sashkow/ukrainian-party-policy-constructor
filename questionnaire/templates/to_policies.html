@@ -13,8 +13,15 @@
 
                 <div class="container" id="party_name">
                     <img class="curle" id="finalcurve" src="{% static 'questionnaire/css/img/curle1.png' %}">
-                <h1 class="finalTitle"id="id_ostannie_pitannia_iak_budemo_peremagati_v_informatsiinii_viini">Політична програма партії{{party_name}}</h1>
-                <img class="curle"  id="finalcurve1" src="{% static 'questionnaire/css/img/curle2.png' %}">
+
+                    {% if party_name %}
+                        <h1 class="finalTitle" id="id_ostannie_pitannia_iak_budemo_peremagati_v_informatsiinii_viini">Політична програма партії "{{party_name}}"</h1>
+                    {% else %}
+                        <h1 class="finalTitle" id="id_ostannie_pitannia_iak_budemo_peremagati_v_informatsiinii_viini">Політична програма партії</h1>
+                    {% endif %}
+
+                <img class="curle" id="finalcurve1" src="{% static 'questionnaire/css/img/curle2.png' %}">
+
             </div>
 
 
