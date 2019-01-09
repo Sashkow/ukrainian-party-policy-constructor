@@ -64,21 +64,30 @@ a{
 
 .finalTitle{ text-align:center;}
 
-@media (max-width: 800px){
+@media (max-width: 600px){
     .category{  font-size: 17px; }
     .subcategory, .fragment, .preamble{  font-size: 12px; }
     #finalcurve,#finalcurve1{ display:none; }
 
 
 }
+@media (max-width: 1125px) and (min-height: 1300px){
+    .category{  font-size: 30px; }
+    .subcategory, .fragment, .preamble{  font-size: 27px; }
+    #finalcurve,#finalcurve1{ display:none; }
+
+
+}
 input[type=submit] {
-    padding:5px 15px;
+    padding:10px 30px;
     background:#ccc;
     position:center;
+    font-weight:bold;
     border:0 none;
     cursor:pointer;
     -webkit-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 0px;
+    display:block;
 }
 
 input:hover[type=submit]{
@@ -88,6 +97,7 @@ input:hover[type=submit]{
     animation-duration:0.3s;
 
 }
+
 
 @keyframes example1 {
   from {background-color: #ccc;}
@@ -138,12 +148,14 @@ input:hover[type=submit]{
   opacity: 0;
 }
 .control__indicator {
-  position: absolute;
-  top: 2px;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background: #e6e6e6;
+    position: absolute;
+    top: 2px;
+    left: -30px;
+    min-width: 50px;
+    min-height: 50px;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
 }
 .control--radio .control__indicator {
   border-radius: 50%;
