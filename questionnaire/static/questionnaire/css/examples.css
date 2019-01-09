@@ -87,7 +87,35 @@ h3{
     font-weight: bold;
   
 }
+h6{
+    padding-top: 2%;
+    font-size: 12px;
+    color: #327272;
+}
 
+h4{
+    font-size: 34px;
+    font-family: Impact , Charcoal,sans-serif;
+
+    text-align: center;
+    background: linear-gradient(to right, #77ceb3 20%, #3e1957 40%, #3e1957 60%, #77ceb3 80%);
+
+    text-shadow: 0.5px -0.6vw #fff4;
+    color: #fff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: 5s BeProud linear infinite,
+    3s Always ease alternate infinite;
+}
+@keyframes BeProud {
+    100% { background-position: 100vw 0px; }
+}
+
+/*
+@keyframes Always {
+    100% { transform: scale(1.1);}
+}
+*/
 .categ{
     text-transform:uppercase;
 }
