@@ -3,7 +3,7 @@
 {% load forms_builder_tags %}
 
 {% block title %}
-  <title>Генератор популізму</title>
+  <title>Конструктор політичної програми</title>
 <link rel="shortcut icon" href="{% static 'questionnaire/css/img/favicon.png' %}" type="image/x-icon">
 {% endblock %}
 
@@ -16,27 +16,37 @@
             <div class="section active" id="section0">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class = "col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-10 offset-md-1 col-xs-12">
-                            <h1 class="header">КОНСТРУКТОР ПОЛІТИЧНОЇ ПРОГРАМИ</h1><h5 >У тебе є унікальна можливість згенерувати власну політичну програму! Відповідай на питання <b>ЧЕCНО</b> і отримуй готовий документ!</h5></div></div>
+                        <div class = "col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-10 offset-sm-1 col-xs-12">
+                            <h1 class="header">КОНСТРУКТОР ПОЛІТИЧНОЇ ПРОГРАМИ</h1><br><h5 >У тебе є унікальна можливість згенерувати власну політичну програму! Відповідай на питання <b>ЧЕCНО</b> і отримуй готовий документ!</h5></div></div>
                     <div class="row mb-2">
-                        <div class = "col-lg-6 offset-lg-3 col-sm-12 col-xs-12">
+                        <div class = "col-lg-6 offset-lg-3 col-md-8 offset-md-2  col-sm-10 offset-sm-1 " align="center">
                              <div class="form-group">
-                                <input type="text" name="party_name" class="form-control" id="partyName" placeholder="Як буде називатися твоя партія?">
-                                <input type="email" name="user_email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Електронна адреса">
+                                      <div class="outerblock"><div class="block">
+                                         <label class="formLabel" for = "partyName">Назва партії:</label>
+                                        <input type="text" name="party_name" class="form-control" id="partyName" placeholder="Як буде називатися твоя партія?">
+
+                                </div></div>
+
+                                        <div class="outerblock"><div class="block">
+                                           <label class="formLabel" for = "partyName">Електрона адреса:</label>
+                                             <input type="email" name="user_email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="email@gmail.com">
+                                        </div></div>
                                  <small id="emailHelp" class="form-text text-muted">Введіть адресу, якщо хочете отримати фінальний документ на пошту. Ми не збираємо і не зберігаємо вашу адресу</small>
                             </div>
-                                <a href="#test" class="btn btn-primary">РОЗПОЧАТИ</a>
+                                <a href="#test" class="btn btn-primary">РОЗПОЧАТИ</a><br>
                         </div>
 
                     </div>
                     <div class = "d-none d-md-block">
                     <div class= "row mb-2 ">
 
-                        <div class = "col-3 offset-1"><p class="faq" align = "left"><b>Що треба робити?</b><br>
-Відповісти на низку питань з 6 великих категорій, котрі охоплюють усі аспекти життя держави. Після завершення, додаток згенерує вам документ з уривків програм українських політичних партій. Гарантуємо, що отримана програма буде нічим не гіршою за наявні.</p></div>
-                        <div class = "col-4 "><p class="faq" align = "left"><b>Як це працює?</b><br>
+
+                        <div class = "col-lg-3 offset-lg-1 col-md-10 offset-md-1"><p class="faq" align = "left"><b>Що треба робити?</b><br>
+Відповісти на низку питань з 6 великих категорій, котрі охоплюють усі аспекти життя держави. Після завершення, додаток згенерує вам документ з уривків програм українських політичних партій. Гарантуємо, що отримана програма буде нічим не гіршою за існуючі.</p></div>
+                        <div class = "col-lg-4  offset-lg-0 col-md-10 offset-md-1"><p class="faq" align = "left"><b>Як це працює?</b><br>
+
 Ми взяли програми 15 українських політичних парій і розділили текст на безліч окремих закінчених смислових фрагментів. Варіантам відповідей тесту відповідають певні фрагменти, що ви і побачите у фінальному документі. Оскільки уривки взяті з реальних партійних програм, то тут ви не знайдете ані пропозицій миру з Росією, ані російської як державної мови. Просимо поставитися до цього з розумінням.</p></div>
-                        <div class = "col-3"><p class="faq" align = "left"><b>Чому ми це зробили?</b><br>
+                        <div class = "col-lg-3 offset-lg-0 col-md-10 offset-md-1"><p class="faq" align = "left"><b>Чому ми це зробили?</b><br>
 Щоб показати, що програми нинішніх українських партій ближчі до твору "Як я бачу ідеальну країну", ніж до реального плану дій, який партії готові виконувати. Іншими словами, вони популістичні.</p></div>
                     </div></div>
                 </div>
@@ -55,17 +65,17 @@
     <script src="{% static 'questionnaire/js/jquery-3.js' %}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="{% static 'questionnaire/js/popper.js' %}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="{% static 'questionnaire/js/bootstrap.js' %}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-          $('a, input, select').prop('tabIndex', -1);
-        </script>
-    <script type="text/javascript">
-          document.onkeydown = function(event)
-          {
-               event= event||window.event;
-               if (event.keyCode == 39) alert(window.location.hash);
-               else if (event.keyCode == 37) window.location.href= window.location.href;
-          };
-    </script>
+    <!--<script type="text/javascript">-->
+          <!--$('a, input, select').prop('tabIndex', -1);-->
+        <!--</script>-->
+    <!--<script type="text/javascript">-->
+          <!--document.onkeydown = function(event)-->
+          <!--{-->
+               <!--event= event||window.event;-->
+               <!--if (event.keyCode == 39) alert(window.location.hash);-->
+               <!--else if (event.keyCode == 37) window.location.href= window.location.href;-->
+          <!--};-->
+    <!--</script>-->
     <script type="text/javascript">
             var myFullpage = new fullpage('#fullpage', {
 
@@ -73,6 +83,7 @@
                 anchors: ['makeYourProgram', 'test', 'thirdPage', 'fourthPage', 'lastPage'],
 	            menu: '#myMenu',
                 slidesNavigation: true,
+                scrollBar: true
 
             });
     </script>

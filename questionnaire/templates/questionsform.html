@@ -2,7 +2,7 @@
 <div class="section" id="section1">
     {% for key, item in question_answers.items %}
     <div class="slide" id="slide0">
-        <div class="row d-block d-sm-none">
+        <div class="row" id="mobile_title">
             <div class="col">
                 <div class="container" id="party_name">
                     <img class="curle" src="{% static 'questionnaire/css/img/curle1.png' %}">
@@ -19,7 +19,13 @@
                     <h2 class="categ">{{item.category}}</h2>
 
                     <h3>{{item.subcategory}}</h3><br>
-                    <h2 align="left">{{item.question}}</h2><br>
+                    <h2 align="left">{{item.question}}</h2>
+                    {% if item.answer_type == "radio" %}
+                      <h6 class="hint" align="left">Питання з одним варіантом відповіді. Якщо ви не хочете торкатися цього питання у політичній програмі - залиште поля пустими</h6>
+                    {% else %}
+                      <h6 class="hint" align="left">Питання може мати декілька варіантів відповідей. Якщо ви не хочете торкатися цього питання у політичній програмі - залиште поля пустими</h6>
+                    {% endif %}
+                    <br>
 
 
                  <div class = "answers">
@@ -34,13 +40,49 @@
                                 <div class ="col" align="center">
                                     <div style="clear:left;">&nbsp;</div>
                                     <input  type="submit" сlass="btn btn-primary" value="ЗГЕНЕРУВАТИ ПОЛІТИЧНУ ПРОГРАМУ">
-                                </div>
-                            </div>
+
+
+
+                                </div></div>
+                            <div class="row">
+                                    <div class="col" align="center">
+                                 <label class="permissionLabel" for="permission"><input id="permission" type="checkbox" name="check" value="check2">
+                                     Даю згоду на збереження результатів тесту</label></div></div>
+
                       {% endif %}
                   </div>
                   </div></div>
-        </div>
+
+        </div>       
     </div>
+    <!-- unique -->
+        {% if forloop.counter == 20 %}
+          <div class="slide" id="slide0">
+              <div class="row" id="mobile_title">
+                  <div class="col">
+                      <div class="container" id="party_name">
+                          <img class="curle" src="{% static 'questionnaire/css/img/curle1.png' %}">
+                      <h1>КОНСТРУКТОР</h1>
+                      <img class="curle" src="{% static 'questionnaire/css/img/curle2.png' %}"><br>
+                          <h1>ПОЛІТИЧНОЇ ПРОГРАМИ</h1>
+                  </div>
+                  </div>
+              </div>          
+          <div class="row">
+              <div class="col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
+                  <div class="question" align="center">
+                      <img class="logo" src="css/img/chesno.png">  
+                  <h2>ТИ МОЖЕШ</h2>
+                  <input type="submit" сlass="btn btn-primary" value="ЗАВЕРШИТИ ВЖЕ">
+                  <h6>Ти отримаєш программу, хоч вона i не буде повною</h6><br>
+                  <h3>Але знай, що далі</h3>
+                  <h4>ЦІКАВІШІ ПИТАННЯ</h4>
+                  <a href="#test/21" class="btn btn-primary">ПРОДОВЖИТИ</a>
+                  
+                      </div>
+               </div>
+          </div>
+        {% endif %}
     {% endfor %}
 
 
@@ -48,27 +90,3 @@
 
 
 
-    <!--<div class="slide" id="slide1">-->
-        <!--<div class="container-fluid">-->
-            <!--<div class="row mb-5">-->
-                <!--<div class="col-lg-10 offset-lg-1 col-sm-12 col-xs-12 col-md-12">-->
-                    <!--<h1 id="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami" >Що ви плануєте зробити із українськими збройними силами?</h1></div>-->
-            <!--</div>-->
-              <!--<div class="row" >-->
-                  <!--<div class = "col-8 offset-2"><div class = "answers">-->
-                      <!--<label class="control control&#45;&#45;checkbox" for="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_0">Створення системи військового резерву-->
-                          <!--<input type="checkbox" name="shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami" value="Створення системи військового резерву" class="multiplechoicefield" id="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_0"><div class="control__indicator"></div></label>-->
-                      <!--<label class="control control&#45;&#45;checkbox" for="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_1">Відновлення ядерного статусу-->
-                          <!--<input type="checkbox" name="shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami" value="Відновлення ядерного статусу" class="multiplechoicefield" id="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_1" ><div class="control__indicator"></div></label>-->
-                      <!--<label class="control control&#45;&#45;checkbox" for="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_2">Перехід до контрактної армії-->
-                          <!--<input  type="checkbox" name="shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami" value="Перехід до контрактної армії" class="multiplechoicefield"  id="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_2"><div class="control__indicator"></div></label>-->
-                      <!--<label class="control control&#45;&#45;checkbox" for="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_3">Реформування та переоснащення армії-->
-                          <!--<input  type="checkbox" name="shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami" value="Реформування та переоснащення армії" class="multiplechoicefield"  id="id_shcho_vi_planuiete_zrobiti_iz_ukrayinskimi_zbroinimi_silami_3" ><div class="control__indicator"></div></label>-->
-
-                  <!--</div>-->
-                  <!--</div>-->
-            <!--</div>-->
-
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
