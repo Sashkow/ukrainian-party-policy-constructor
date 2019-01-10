@@ -355,7 +355,7 @@ input:hover[type=submit]{
 }
 
 #party_name{
-    padding:5%;
+    padding:2%;
     flex-direction:row;
     display: flex;
     align-items: center;
