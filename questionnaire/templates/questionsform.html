@@ -20,7 +20,11 @@
 
                     <h3>{{item.subcategory}}</h3><br>
                     <h2 align="left">{{item.question}}</h2>
-                    <h6 class="hint" align="left">Питання (може мати декілька варіантів відповідей.) з одним варіантом відповіді. Якщо ви не хочете торкатися цього питання у політичній програмі - залиште поля пустими</h6>
+                    {% if item.answer_type == "radio" %}
+                      <h6 class="hint" align="left">Питання з одним варіантом відповіді. Якщо ви не хочете торкатися цього питання у політичній програмі - залиште поля пустими</h6>
+                    {% else %}
+                      <h6 class="hint" align="left">Питання може мати декілька варіантів відповідей. Якщо ви не хочете торкатися цього питання у політичній програмі - залиште поля пустими</h6>
+                    {% endif %}
                     <br>
 
 
@@ -48,8 +52,37 @@
                       {% endif %}
                   </div>
                   </div></div>
-        </div>
+
+        </div>       
     </div>
+    <!-- unique -->
+        {% if forloop.counter == 20 %}
+          <div class="slide" id="slide0">
+              <div class="row" id="mobile_title">
+                  <div class="col">
+                      <div class="container" id="party_name">
+                          <img class="curle" src="{% static 'questionnaire/css/img/curle1.png' %}">
+                      <h1>КОНСТРУКТОР</h1>
+                      <img class="curle" src="{% static 'questionnaire/css/img/curle2.png' %}"><br>
+                          <h1>ПОЛІТИЧНОЇ ПРОГРАМИ</h1>
+                  </div>
+                  </div>
+              </div>          
+          <div class="row">
+              <div class="col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
+                  <div class="question" align="center">
+                    <img class="logo" src="{% static 'questionnaire/css/img/chesno.png' %}">
+                  <h2>ТИ МОЖЕШ</h2>
+                  <input type="submit" сlass="btn btn-primary" value="ЗАВЕРШИТИ ВЖЕ">
+                  <h6>Ти отримаєш программу, хоч вона i не буде повною</h6><br>
+                  <h3>Але знай, що далі</h3>
+                  <h4>ЦІКАВІШІ ПИТАННЯ</h4>
+                  <a href="#test/21" class="btn btn-primary">ПРОДОВЖИТИ</a>
+                  
+                      </div>
+               </div>
+          </div>
+        {% endif %}
     {% endfor %}
 
 
