@@ -279,7 +279,11 @@ label{
   #section1{
 
     background-image:url("img/back_s.png");
-}}
+}
+#mobile_title{
+    display:block;
+}
+}
 
 
 @media (max-width: 1125px) and (min-height: 1000px) {
@@ -303,6 +307,8 @@ label{
    h2{
     font-size: 43px;
   }
+  h6{
+    font-size: 30px;}
   .logo{
   display:none;
   }
