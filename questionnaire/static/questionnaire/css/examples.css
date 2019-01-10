@@ -240,6 +240,212 @@ label{
 #mobile_title{
     display:none;
 }
+body,div,dl,dt,dd,ul,ol,li,h2,h3,h5,h6,pre,
+form,fieldset,input,textarea,p,blockquote,th,td,p{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{
+	text-decoration:none;
+}
+.container {
+  width:100%;
+  height: 100%;
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.preamble, .fragment{
+    text-indent: 3%;
+    color: black;
+    font-size:17px;
+    text-align:justify;
+
+}
+
+.preamble{
+    padding:1%;
+    font-style: oblique;
+    font-weight:bold;
+}
+.question{
+    background: #fff;
+    padding: 5%;
+
+}
+
+.category{
+    font-size: 22px;
+    font-style: oblique;
+    font-weight: bold;
+
+    padding-top:5%;
+    padding-left:5%;
+}
+.subcategory{
+    font-size: 17px;
+    font-style: oblique;
+    font-weight: bold;
+    color:grey;
+
+    padding-left:5%;
+}
+
+.finalTitle{ text-align:center;}
+
+input[type=submit] {
+    padding:10px 30px;
+    background:#ccc;
+    position:center;
+    font-weight:bold;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 0px;
+    display:block;
+}
+
+input:hover[type=submit]{
+    color:white;
+    background:#54c4bb;
+    animation-name:example1;
+    animation-duration:0.3s;
+
+}
+
+
+@keyframes example1 {
+  from {background-color: #ccc;}
+  to {
+  background-color: #54c4bb;
+  color:white;}
+}
+
+.control-group {
+  display: inline-block;
+  vertical-align: top;
+  background: #fff;
+  text-align: left;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  padding: 30px;
+  width: 200px;
+  height: 210px;
+  margin: 10px;
+}
+.control {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  cursor: pointer;
+
+}
+
+.navbar{
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: 40%;
+    background-image: url("img/nav.jpg");
+
+}
+
+#party_name{
+    padding:5%;
+    flex-direction:row;
+    display: flex;
+    align-items: center;
+}
+
+
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.control__indicator {
+    position: absolute;
+    top: 2px;
+    left: -0.5%;
+    min-height: 20px;
+    min-width: 20px;
+    background: #e6e6e6;
+}
+.control--radio .control__indicator {
+  border-radius: 50%;
+}
+.control:hover input ~ .control__indicator{
+    background: #ccc;
+}
+.control input:focus ~ .control__indicator {
+  background: #e6e6e6;
+}
+.control input:checked ~ .control__indicator {
+  background: #454545ff;
+    animation-name: example;
+    animation-duration: 0.3s;
+}
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+  background: #3b3b3bff;
+  animation-name: example;
+    animation-duration: 0.3s;
+
+}
+.control input:disabled ~ .control__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.control__indicator:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+.control input:checked ~ .control__indicator:after {
+  display: block;
+}
+.control--checkbox .control__indicator:after {
+  left: 8px;
+  top: 4px;
+  min-width: 3px;
+  min-height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b;
+}
+.control--radio .control__indicator:after {
+  left: 7px;
+  top: 7px;
+  min-height: 6px;
+  min-width: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+.control--radio input:disabled ~ .control__indicator:after {
+  background: #7b7b7b;
+}
+
+@keyframes example {
+    from {background: #ccc;}
+    to {background: #454545ff;}
+}
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 600px) {
   h1 {
@@ -283,6 +489,10 @@ label{
 #mobile_title{
     display:block;
 }
+.category{  font-size: 17px; }
+    .subcategory, .fragment, .preamble{  font-size: 12px; }
+    #finalcurve,#finalcurve1{ display:none; }
+    .control{ padding-left: 30px;}
 }
 
 
@@ -356,7 +566,44 @@ label{
 .permissionLabel{
     font-size: 30px;
 }
+.faq{
 
+display:none;}
+h4 {
+    font-size: 54px;
+    padding:10px;}
+
+.category{  font-size: 30px; }
+    .subcategory, .fragment, .preamble{  font-size: 27px; }
+    #finalcurve,#finalcurve1{ display:none; }
+
+    .control__indicator{
+         min-width: 50px;
+         min-height: 50px;
+       }
+       .control {
+         padding-left: 60px;
+ }
+ .control--checkbox .control__indicator:after {
+
+    left: 16px;
+    top: 8px;
+    width: 9px;
+    height: 24px;
+ }
+  .control--radio .control__indicator:after {
+
+    left: 16px;
+    top: 8px;
+    min-width: 9px;
+    min-height: 24px;
+ }
+ .control--radio .control__indicator:after {
+      left: 16px;
+    top: 16px;
+    min-height: 16px;
+    min-width: 16px;
+}
 }
 
 
