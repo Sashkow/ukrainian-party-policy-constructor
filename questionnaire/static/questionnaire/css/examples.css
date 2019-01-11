@@ -49,11 +49,7 @@ body{
     background-size: cover;
 }
 
-#paper{
- height:100%;
-padding:3%;
- background:#fff;
- }
+
 .wrap{
 	margin-left: auto;
 	margin-right: auto;
@@ -263,8 +259,9 @@ a{
 .preamble, .fragment{
     text-indent: 3%;
     color: black;
-    font-size:17px;
+    font-size:20px;
     text-align:justify;
+
 
 }
 
@@ -318,7 +315,14 @@ input:hover[type=submit]{
 
 }
 
-
+#paper{
+    height:100%;
+    padding-top:3%;
+    padding-bottom:3%;
+    padding-right:10%;
+    padding-left:10%;
+    background:#fff;
+ }
 @keyframes example1 {
   from {background-color: #ccc;}
   to {
@@ -493,10 +497,16 @@ input:hover[type=submit]{
     .subcategory, .fragment, .preamble{  font-size: 12px; }
     #finalcurve,#finalcurve1{ display:none; }
     .control{ padding-left: 30px;}
+    #paper{
+        padding-right:3%;
+        padding-left:3%;
+        padding-bottom:3%;
+        padding-top:10%;
+        }
 }
 
 
-@media (max-width: 1125px) and (min-height: 1000px) {
+@media (max-width: 1125px) and (min-width: 601px) and (min-height: 1000px) {
   h1 {
     font-size: 60px;
   }
@@ -604,9 +614,26 @@ h4 {
     min-height: 16px;
     min-width: 16px;
 }
+ #paper{
+        padding-right:3%;
+        padding-left:3%;
+        padding-bottom:3%;
+        padding:3%;
+        padding-top:4%;}
+
 }
 
 
 
 
 
+.fb {
+
+    position: fixed;
+    margin: 2%;
+        margin-left: 2%;
+    z-index: 100;
+    opacity: 0.8;
+    margin-left: 9%;
+
+}
