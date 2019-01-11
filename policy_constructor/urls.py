@@ -23,9 +23,10 @@ from questionnaire.views import to_policies, questionnaire, to_pdf
 import forms_builder.forms.urls # add this import
 
 urlpatterns = [
+    path('', questionnaire, name='questionnaire'),
     path('admin/', admin.site.urls),
     path(r'forms/', include(forms_builder.forms.urls)),
-    path(r'to_policies/', to_policies, name='to_policies'),
+    path(r'to_policies/<int:attempt_id>', to_policies, name='to_policies'),
     path(r'questionnaire/', questionnaire, name='questionnaire'),
     path(r'to_pdf/', to_pdf, name='to_pdf'),
 ]

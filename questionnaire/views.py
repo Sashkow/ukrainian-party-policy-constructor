@@ -1,3 +1,5 @@
+from argparse import _AppendAction
+
 from django.shortcuts import render, reverse
 
 from django.http import HttpResponse, HttpResponseRedirect
@@ -6,7 +8,7 @@ from django.dispatch import receiver
 from forms_builder.forms.signals import form_valid
 from forms_builder.forms.models import Form, Field, FormEntry, FieldEntry
 from questionnaire.utils import parse_policies, select_random
-from questionnaire.models import QuestionAnswer
+from questionnaire.models import QuestionAnswer, UserAttemptQuestionAnswer, UserAttempt
 from django.core.mail import send_mail
 import html2text
 
@@ -48,6 +50,7 @@ def render_to_pdf(template_src, context_dict):
 from django.contrib.messages import get_messages
 # Form.objects.get(slug='golosuvalka')
 
+
 def field_slug_to_label(slug):
     field = Field.objects.filter(form__slug='questions', slug=slug)
     if len(field)==1:
@@ -55,9 +58,35 @@ def field_slug_to_label(slug):
     else:
         return None
 
-def to_policies(request):
-    print(request)
-    return render(request, 'to_policies.html')
+
+def to_policies(request, attempt_id):
+    """
+
+    :param request: http request
+    :param attempt_id: id for user attempt to generate political platform; id of UserAttempt model
+    :return: http response with political platfom text and unique url
+    """
+    not_found = 'Не знайдено'
+    political_platform = not_found
+    preamble = not_found
+    party_name = not_found
+
+    try:
+        user_attempt = UserAttempt.objects.get(id=attempt_id)
+        political_platform = user_attempt.policical_platform_html
+        preamble = user_attempt.preamble_html
+        party_name = user_attempt.party_name
+    except UserAttempt.DoesNotExist:
+        user_attempt = None
+
+    return render(request, 'to_policies.html',
+                  {'answers': political_platform,
+                   "party_name": party_name,
+                   "preamble": preamble,
+                   "full_url": request.build_absolute_uri(),}
+                  )
+    # return render(request, 'to_policies.html')
+
 
 def questionnaire(request):
     if request.method == "POST":
@@ -82,13 +111,16 @@ def questionnaire(request):
 
         # question_answers = {field_slug_to_label(item):request.POST.getlist(item) for item in request if item}
 
-
+        permission = False
         for item in request.POST:
             if item == 'party_name':
                 party_name = request.POST[item]
                 party_name = party_name.strip()
             elif item == 'user_email':
                 user_email = request.POST[item]
+            elif item == 'permission':
+                permission = True
+
 
 
 
@@ -127,20 +159,36 @@ def questionnaire(request):
                 fail_silently=False,
             )
 
-        messages.add_message(request, messages.INFO, political_platform, extra_tags = 'answers')
-        messages.add_message(request, messages.INFO, party_name, extra_tags='party_name')
-        messages.add_message(request, messages.INFO, preamble, extra_tags='preamble')
+        # messages.add_message(request, messages.INFO, political_platform, extra_tags = 'answers')
+        # messages.add_message(request, messages.INFO, party_name, extra_tags='party_name')
+        # messages.add_message(request, messages.INFO, preamble, extra_tags='preamble')
+        if permission:
+
+            user_attempt = UserAttempt.objects.create(
+                policical_platform_html = political_platform,
+                preamble_html = preamble,
+                party_name = party_name,
+            )
+
+            user_attempt.save()
+
+            for question_answer in question_answers:
+                pair = UserAttemptQuestionAnswer(
+                    question_answer = question_answer,
+                    user_attempt = user_attempt,
+                )
+                pair.save()
+
+            return HttpResponseRedirect(reverse('to_policies', args=(user_attempt.id,)))
+        else:
+            return render(request, 'to_policies.html',
+                {'answers': political_platform,
+                "party_name": party_name,
+                "preamble": preamble,}
+            )
 
 
 
-
-        return HttpResponseRedirect(reverse('create_rating', args=(video_id,)))
-
-        return render(request, 'to_policies.html',
-                      {'answers': political_platform,
-                       "party_name":party_name,
-                       "preamble":preamble}
-        )
     else:
         # if method GET
         question_answers = QuestionAnswer.objects.filter(~Q(question="Преамбули")).order_by('id')
@@ -170,14 +218,12 @@ def questionnaire(request):
         return render(request, 'questionnaire.html', {"question_answers":quas,})
 
 
-
 @receiver(form_valid)
 def set_username(sender=None, form=None, entry=None, **kwargs):
     request = sender
 
 
 def to_pdf(request):
-
     results = {'html':"<h1>Hwllo</h1>", 'other':"other results"}
     #Retrieve data or whatever you need
     return render_to_pdf(
@@ -188,17 +234,14 @@ def to_pdf(request):
             }
         )
 
-
-
-
-
-def other_view(request):
-    storage = get_messages(request)
-    name = None
-    for message in storage:
-        name = message
-        break
-    return render(request, 'general/other_view.html', {'name': name})
-
-
-# Create your views here.
+#
+# def other_view(request):
+#     storage = get_messages(request)
+#     name = None
+#     for message in storage:
+#         name = message
+#         break
+#     return render(request, 'general/other_view.html', {'name': name})
+#
+#
+# # Create your views here.

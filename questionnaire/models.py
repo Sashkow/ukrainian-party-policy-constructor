@@ -21,12 +21,12 @@ class QuestionAnswer(models.Model):
 class UserAttempt(models.Model):
     policical_platform_html = models.TextField(null=True, blank=True)
     preamble_html = models.TextField(null=True, blank=True)
-    party_name = models.CharField(max_length=1000, null=True, blank=True)
+    party_name = models.CharField(max_length=500, null=True, blank=True)
 
 
 class UserAttemptQuestionAnswer(models.Model):
     user_attempt = models.ForeignKey('UserAttempt', on_delete=models.CASCADE)
-    qestion_answer = models.ForeignKey('QuestionAnswer', on_delete=models.CASCADE)
+    question_answer = models.ForeignKey('QuestionAnswer', on_delete=models.CASCADE)
 
 
 

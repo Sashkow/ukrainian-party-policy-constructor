@@ -109,7 +109,7 @@ env3/
 
 
 
-qestionnaire/migrations/*
+qestionnaire/migrations/
 
 demo_pub/migrations/
 
