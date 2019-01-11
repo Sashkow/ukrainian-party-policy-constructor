@@ -18,6 +18,17 @@ class QuestionAnswer(models.Model):
     def __str__(self):
         return ' | '.join([self.question, self.answer])
 
+class UserAttempt(models.Model):
+    policical_platform_html = models.TextField(null=True, blank=True)
+    preamble_html = models.TextField(null=True, blank=True)
+    party_name = models.CharField(max_length=1000, null=True, blank=True)
+
+
+class UserAttemptQuestionAnswer(models.Model):
+    user_attempt = models.ForeignKey('UserAttempt', on_delete=models.CASCADE)
+    qestion_answer = models.ForeignKey('QuestionAnswer', on_delete=models.CASCADE)
+
+
 
 class Policy(models.Model):
     qa = models.ForeignKey(QuestionAnswer, on_delete=models.PROTECT, null=True, blank=True)

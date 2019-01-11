@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
+
+from django.http import HttpResponse, HttpResponseRedirect
 
 from django.dispatch import receiver
 from forms_builder.forms.signals import form_valid
@@ -23,6 +25,11 @@ from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponse
 from html import escape
+
+
+from django.contrib import messages
+
+
 
 
 def render_to_pdf(template_src, context_dict):
@@ -120,6 +127,15 @@ def questionnaire(request):
                 fail_silently=False,
             )
 
+        messages.add_message(request, messages.INFO, political_platform, extra_tags = 'answers')
+        messages.add_message(request, messages.INFO, party_name, extra_tags='party_name')
+        messages.add_message(request, messages.INFO, preamble, extra_tags='preamble')
+
+
+
+
+        return HttpResponseRedirect(reverse('create_rating', args=(video_id,)))
+
         return render(request, 'to_policies.html',
                       {'answers': political_platform,
                        "party_name":party_name,
@@ -172,6 +188,17 @@ def to_pdf(request):
             }
         )
 
+
+
+
+
+def other_view(request):
+    storage = get_messages(request)
+    name = None
+    for message in storage:
+        name = message
+        break
+    return render(request, 'general/other_view.html', {'name': name})
 
 
 # Create your views here.
