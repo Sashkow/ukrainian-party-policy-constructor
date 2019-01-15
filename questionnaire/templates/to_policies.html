@@ -11,14 +11,24 @@
           var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) return;
           js = d.createElement(s); js.id = id;
-          js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2';
+          js.src = 'https://connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v3.2&appId=278239086175612&autoLogAppEvents=1';
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
 
 {% if full_url %}
-    <div class="fb">
-        <div class="fb-share-button" data-href="{{full_url}}" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-    </div>
+    <!--<div class="fb">-->
+        <!--<div class="fb-share-button" data-href="{{full_url}}" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Поділитися</a></div>-->
+    <!--</div>-->
+
+<div class="fb-share-button"
+     data-href="{{full_url}}"
+     data-layout="button_count"
+     data-size="large"
+     data-mobile-iframe="true">
+    <a target="_blank"
+       href="https://www.facebook.com/sharer/sharer.php?u=https://populi.chesno.org/to_policies/9&amp;src=sdkpreparse"
+       class="fb-xfbml-parse-ignore">Поділитися</a>
+</div>
 {% endif %}
 
     <div class="container-fluid h-100">
@@ -36,8 +46,7 @@
                         <h1 class="finalTitle" id="id_ostannie_pitannia_iak_budemo_peremagati_v_informatsiinii_viini">Політична програма партії</h1>
                     {% endif %}
 
-                <img class="curle" id="finalcurve1" src="{% static 'questionnaire/css/img/curle2.png' %}">
-
+                    <img class="curle" id="finalcurve1" src="{% static 'questionnaire/css/img/curle2.png' %}">
             </div>
 
 
@@ -48,6 +57,15 @@
                 {% autoescape off %}
                   {{answers}}
                 {% endautoescape %}
+
+                <div class="container" id="party_name">
+                    <img class="curle" id="finalcurve"  src="{% static 'questionnaire/css/img/curle1.png' %}">
+                    <a href="/">Згенерувати ще одну політичну програму</a>
+                    <img class="curle" id="finalcurve1" src="{% static 'questionnaire/css/img/curle2.png' %}">
+                </div>
+
+
+
 
 
           </div>

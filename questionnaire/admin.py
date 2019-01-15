@@ -16,7 +16,6 @@ class QuestionAnswerResource(ModelResource):
 
         # fields = ['name', 'author', ]
 
-
 class QuestionAnswerAdmin(ImportExportMixin, admin.ModelAdmin):
     list_display = [field.name for field in QuestionAnswer._meta.fields]
     exclude = ['ID']
