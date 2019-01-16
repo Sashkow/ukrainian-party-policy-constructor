@@ -1,5 +1,6 @@
 {% load static %}
 <div class="section" id="section1">
+    <img class="marks"src="{% static 'questionnaire/css/img/marks.png' %}" >
      <div class="row" id="mobile_title">
             <div class="col">
                 <div class="container" id="party_name">
@@ -61,24 +62,15 @@
     <!-- unique -->
         {% if forloop.counter == 20 %}
           <div class="slide" id="slide0">
-              <div class="row" id="mobile_title">
-                  <div class="col">
-                      <div class="container" id="party_name">
-                          <img class="curle" src="{% static 'questionnaire/css/img/curle1.png' %}">
-                      <h1>КОНСТРУКТОР</h1>
-                      <img class="curle" src="{% static 'questionnaire/css/img/curle2.png' %}"><br>
-                          <h1>ПОЛІТИЧНОЇ ПРОГРАМИ</h1>
-                  </div>
-                  </div>
-              </div>          
+
           <div class="row">
               <div class="col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
                   <div class="question" align="center">
                     <a href="https://www.chesno.org/"><img class="logo"src="{% static 'questionnaire/css/img/chesno.png' %}" ></a>
-                  <h2>ТИ МОЖЕШ</h2>
-                  <input type="submit" сlass="btn btn-primary" value="ЗАВЕРШИТИ ВЖЕ">
-                  <h6>Ти отримаєш программу, хоч вона i не буде повною</h6><br>
-                  <h3>Але знай, що далі</h3>
+                  <h8>ТИ МОЖЕШ</h8>
+                  <input type="submit" сlass="end" value="ЗАВЕРШИТИ ВЖЕ">
+                  <h8>Ти отримаєш программу, хоч вона i не буде повною</h8><br><br>
+                  <h8>Але знай, що далі</h8>
                   <h4>ЦІКАВІШІ ПИТАННЯ</h4>
                   <a href="#test/21" class="btn btn-primary">ПРОДОВЖИТИ</a>
                   
