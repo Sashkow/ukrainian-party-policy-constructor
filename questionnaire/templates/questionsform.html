@@ -1,8 +1,6 @@
 {% load static %}
 <div class="section" id="section1">
-    {% for key, item in question_answers.items %}
-    <div class="slide" id="slide0">
-        <div class="row" id="mobile_title">
+     <div class="row" id="mobile_title">
             <div class="col">
                 <div class="container" id="party_name">
                     <img class="curle" src="{% static 'questionnaire/css/img/curle1.png' %}">
@@ -12,10 +10,13 @@
             </div>
             </div>
         </div>
+    {% for key, item in question_answers.items %}
+    <div class="slide" >
+
        <div class="row">
             <div class="col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
                 <div class="question">
-                    <img class="logo"src="{% static 'questionnaire/css/img/chesno.png' %}">
+                    <a href="https://www.chesno.org/"><img class="logo"src="{% static 'questionnaire/css/img/chesno.png' %}" ></a>
                     <h2 class="categ">{{item.category}}</h2>
 
                     <h3>{{item.subcategory}}</h3><br>
@@ -51,6 +52,7 @@
                                      Даю згоду на збереження результатів тесту<b> (обовʼязково, якщо хочеш поділитися своєю програмою у Facebook)</b></label></div></div>
 
                       {% endif %}
+
                   </div>
                   </div></div>
 
@@ -72,7 +74,7 @@
           <div class="row">
               <div class="col-lg-6 offset-lg-3 col-sm-12 col-xs-12 col-md-12">
                   <div class="question" align="center">
-                    <img class="logo" src="{% static 'questionnaire/css/img/chesno.png' %}">
+                    <a href="https://www.chesno.org/"><img class="logo"src="{% static 'questionnaire/css/img/chesno.png' %}" ></a>
                   <h2>ТИ МОЖЕШ</h2>
                   <input type="submit" сlass="btn btn-primary" value="ЗАВЕРШИТИ ВЖЕ">
                   <h6>Ти отримаєш программу, хоч вона i не буде повною</h6><br>
