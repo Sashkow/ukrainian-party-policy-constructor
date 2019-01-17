@@ -134,15 +134,16 @@ def questionnaire(request):
             policies = question_answer.policies
             parsed = parse_policies(policies)
             policy, party = select_random(parsed)
-            if question_answer.category != current_category:
-                current_category = question_answer.category
-                political_platform.append('<p class="category">' + current_category + '</p>')
+            if policy:
+                if question_answer.category != current_category:
+                    current_category = question_answer.category
+                    political_platform.append('<p class="category">' + current_category + '</p>')
 
-            if question_answer.subcategory != current_subcategory:
-                current_subcategory = question_answer.subcategory
-                political_platform.append('<p class="subcategory">' + current_subcategory + '</p>')
+                if question_answer.subcategory != current_subcategory:
+                    current_subcategory = question_answer.subcategory
+                    political_platform.append('<p class="subcategory">' + current_subcategory + '</p>')
 
-            political_platform.append('<p class="fragment">' + policy + '</p>')
+                political_platform.append('<p class="fragment">' + policy + '</p>')
 
         political_platform = '\n'.join(political_platform)
 
@@ -156,7 +157,7 @@ def questionnaire(request):
             '\n'.join([html2text.html2text(preamble), html2text.html2text(political_platform)]),
                 'chasnyk@populi.chesno.org',
                 [user_email,],
-                fail_silently=False,
+                fail_silently=True,
             )
 
         # messages.add_message(request, messages.INFO, political_platform, extra_tags = 'answers')
