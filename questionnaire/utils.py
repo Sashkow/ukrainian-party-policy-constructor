@@ -28,7 +28,7 @@ def parse_policies(policies):
     :return: policy-party dict
     """
     if not(isinstance(policies, str) and policies):
-        return {"Усім безкоштовний велосипед.":"Редакція"}
+        return {"":""}
 
     policy_list = policies.split('\n\n')
     policy_party = {}
