@@ -59,6 +59,22 @@ def field_slug_to_label(slug):
         return None
 
 
+def form_data_to_question_answer(request_post):
+    question_answers = []
+    for slug in request_post:
+        if QuestionAnswer.objects.filter(slug=slug):
+            for answer in request_post.getlist(slug):
+                qa = QuestionAnswer.objects.filter(slug=slug, answer=answer)
+                if qa:
+                    qa = qa[0]
+                    question_answers.append(qa)
+                else:
+                    print("no qa for",slug, answer)
+    return question_answers
+
+
+# ut.sort(key=lambda x: x.count, reverse=True)
+
 def to_policies(request, attempt_id):
     """
 
@@ -123,8 +139,11 @@ def questionnaire(request):
 
 
 
+        question_answers = form_data_to_question_answer(request.POST)
 
-        question_answers = QuestionAnswer.objects.filter(answer__in=answers).order_by('id')
+
+        # question_answers = QuestionAnswer.objects.filter(answer__in=answers).order_by('id')
+
         political_platform = []
         current_category = ""
         current_subcategory = ""
